@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://2f6bsyhh271w"]
+
+[ext_resource type="Script" uid="uid://d4mpw6quryhlt" path="res://scripts/moneda.gd" id="1_0t63x"]
+[ext_resource type="Texture2D" uid="uid://dmlqa73qn5g7s" path="res://sprites/tiles_naturaleza.png" id="2_v7riw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdq0q"]
+radius = 5.0
+
+[node name="Moneda" type="Area2D" unique_id=1889370509]
+script = ExtResource("1_0t63x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1006309376]
+texture = ExtResource("2_v7riw")
+hframes = 7
+vframes = 11
+frame = 54
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1570766702]
+shape = SubResource("CircleShape2D_pdq0q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

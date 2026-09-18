@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dqrk5j8rk0i5p"]
+
+[ext_resource type="Script" uid="uid://b11say77421x" path="res://scripts/murcielago.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dbbxb7f47f55h" path="res://sprites/enemigos.png" id="2_qi2p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8w22e"]
+size = Vector2(14, 10)
+
+[node name="Murcielago" type="Area2D" unique_id=580610848]
+script = ExtResource("1_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=237991364]
+texture = ExtResource("2_qi2p4")
+hframes = 4
+vframes = 12
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1954793787]
+shape = SubResource("RectangleShape2D_8w22e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
