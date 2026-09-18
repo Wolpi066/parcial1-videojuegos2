@@ -69,6 +69,7 @@ func saltar():
 	tiempo_coyote = 0
 	tiempo_buffer = 0
 	sonido_salto.play()
+	$ParticulasSalto.emitting = true
 
 
 func animar(direccion):
@@ -91,6 +92,7 @@ func recibir_golpe():
 	vida -= 1
 	invulnerable = 1.0
 	velocity.y = -200
+	$ParticulasGolpe.emitting = true
 	if vida <= 0:
 		# si recargo directo tira error, porque esto viene de una señal de fisica
 		get_tree().call_deferred("reload_current_scene")

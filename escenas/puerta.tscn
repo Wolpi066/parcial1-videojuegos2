@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://jwb5wh58jfqr" path="res://scripts/puerta.gd" id="1_x51kr"]
 [ext_resource type="Texture2D" uid="uid://dvdaaojabpiou" path="res://sprites/puerta.png" id="2_noj1y"]
+[ext_resource type="Texture2D" uid="uid://clmyabfsf7bvh" path="res://sprites/chispa.png" id="3_d2mpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_estmb"]
 size = Vector2(14, 24)
+
+[sub_resource type="Gradient" id="Gradient_u1spq"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(0.996, 0.906, 0.38, 1, 0.976, 0.639, 0.106, 1, 0.976, 0.639, 0.106, 0)
 
 [node name="Puerta" type="Area2D" unique_id=1662959065]
 script = ExtResource("1_x51kr")
@@ -16,5 +21,23 @@ hframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1560794918]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_estmb")
+
+[node name="Particulas" type="CPUParticles2D" parent="." unique_id=1184310138]
+position = Vector2(0, 2)
+emitting = false
+amount = 30
+texture = ExtResource("3_d2mpg")
+one_shot = true
+explosiveness = 0.85
+emission_shape = 3
+emission_rect_extents = Vector2(8, 12)
+direction = Vector2(0, -1)
+spread = 40.0
+gravity = Vector2(0, 40)
+initial_velocity_min = 25.0
+initial_velocity_max = 60.0
+damping_min = 20.0
+damping_max = 20.0
+color_ramp = SubResource("Gradient_u1spq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

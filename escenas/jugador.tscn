@@ -95,6 +95,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dw050"]
 size = Vector2(12, 20)
 
+[sub_resource type="Gradient" id="Gradient_wcsk3"]
+colors = PackedColorArray(0.92, 0.86, 0.8, 0.9, 0.73, 0.46, 0.42, 0)
+
+[sub_resource type="Gradient" id="Gradient_8dtx2"]
+offsets = PackedFloat32Array(0, 0.25, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.85, 0.2, 0.2, 1, 0.55, 0.1, 0.15, 0)
+
 [node name="Jugador" type="CharacterBody2D" unique_id=960063696]
 script = ExtResource("1_hqtel")
 
@@ -126,3 +133,37 @@ offset_right = 4.0
 offset_bottom = 4.0
 theme_override_font_sizes/font_size = 8
 text = "Vida: 3   Monedas: 0"
+
+[node name="ParticulasSalto" type="CPUParticles2D" parent="." unique_id=23433543]
+position = Vector2(0, 10)
+emitting = false
+amount = 10
+lifetime = 0.35
+one_shot = true
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(4, 1)
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 45.0
+damping_min = 60.0
+damping_max = 80.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_wcsk3")
+
+[node name="ParticulasGolpe" type="CPUParticles2D" parent="." unique_id=586635129]
+position = Vector2(0, -6)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_8dtx2")
